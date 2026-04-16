@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: steer-protocol-indexer
+description: Steer Protocol - Uniswap V3 + Vault Holders Indexer
+
+field_selection:
+  transaction_fields:
+    - "hash"
+    - "from"
+    - "gasPrice"
+
+contracts:
+  # ============================================================
+  # Uniswap V3 Contracts
+  # ============================================================
+  - name: V3Factory
+    handler: ./src/handlers/V3Factory.ts
+    events:
+      - event: "PoolCreated(address indexed token0, address indexed token1, uint24 indexed fee, int24 tickSpacing, address pool)"
+
+  - name: Pool
+    handler: ./src/handlers/Pool.ts
+    events:
+      - event: "Initialize(uint160 sqrtPriceX96, int24 tick)"
+      - event: "Swap(address indexed sender, address indexed recipient, int256 amount0, int256 amount1, uint160 sqrtPriceX96, uint128 liquidity, int24 tick)"
+      - event: "Mint(address sender, address indexed owner, int24 indexed tickLower, int24 indexed tickUpper, uint128 amount, uint256 amount0, uint256 amount1)"
+      - event: "Burn(address indexed owner, int24 indexed tickLower, int24 indexed tickUpper, uint128 amount, uint256 amount0, uint256 amount1)"
+      - event: "Flash(address indexed sender, address indexed recipient, uint256 amount0, uint256 amount1, uint256 paid0, uint256 paid1)"
+
+  - name: NonfungiblePositionManager
+    handler: ./src/handlers/NonfungiblePositionManager.ts
+    events:
+      - event: "IncreaseLiquidity(uint256 indexed tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)"
+      - event: "DecreaseLiquidity(uint256 indexed tokenId, uint128 liquidity, uint256 amount0, uint256 amount1)"
+      - event: "Collect(uint256 indexed tokenId, address recipient, uint256 amount0, uint256 amount1)"
+        name: "NFTCollect"
+      - event: "Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
+        name: "NFTTransfer"
+
+  # ============================================================
+  # Vault Holders Contracts
+  # ============================================================
+  - name: VaultFactory
+    handler: ./src/handlers/VaultFactory.ts
+    events:
+      - event: "VaultCreated(address deployer, address vault, string beaconName, uint256 indexed tokenId, address vaultManager)"
+
+  - name: VaultERC20
+    handler: ./src/handlers/VaultERC20.ts
+    events:
+      - event: "Transfer(address indexed from, address indexed to, uint256 value)"
+        name: "VaultTransfer"
+
+chains:
+  # Filecoin - Uniswap V3
+  - id: 314
+    start_block: 5890000
+    rpc:
+      url: "https://lb.drpc.org/ogrpc?network=filecoin&dkey=Al1Yg8T6-U2kqJjq4FoHYWMvmRoDOMwR8ZX1tiKh6MJI"
+      for: sync
+    contracts:
+      - name: V3Factory
+        address:
+          - "0xB4C47eD546Fc31E26470a186eC2C5F19eF09BA41"
+      - name: Pool
+        # Dynamic - registered via contractRegister
+      - name: NonfungiblePositionManager
+        address:
+          - "0x4cd986dD509fbB6A695aE971d5C56c8795f640ee"
+        start_block: 5890000
+
+  # Arbitrum - Vault Holders
+  - id: 42161
+    start_block: 88698956
+    contracts:
+      - name: VaultFactory
+        address:
+          - "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+      - name: VaultERC20
+        # Dynamic - registered via contractRegister
