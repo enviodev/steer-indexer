@@ -179,13 +179,13 @@ chains:
         address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
       - name: VaultERC20
 
-  # Zeta
-  - id: 7000
-    start_block: 6576801
-    contracts:
-      - name: VaultFactory
-        address: "0x49c40936D8430dCBf5787bb6F0F3B26578cc3c12"
-      - name: VaultERC20
+  # # Zeta (7000) - HyperSync missing transaction fields
+  # - id: 7000
+  #   start_block: 6576801
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x49c40936D8430dCBf5787bb6F0F3B26578cc3c12"
+  #     - name: VaultERC20
 
   # Base
   - id: 8453
