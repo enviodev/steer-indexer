@@ -11,11 +11,11 @@ import "../handlers/NonfungiblePositionManager";
 import "../handlers/VaultFactory";
 import "../handlers/VaultERC20";
 
-const CHAIN_ID = 314;
+const CHAIN_ID = 42161;
 const ZERO_BD = new BigDecimal(0);
 const ONE_BD = new BigDecimal(1);
 
-const factoryAddr = "0xb4c47ed546fc31e26470a186ec2c5f19ef09ba41";
+const factoryAddr = "0x0000000000000000000000000000000000000000";
 const npmAddr = Addresses.mockAddresses[10]!;
 const poolAddr = Addresses.mockAddresses[2]!;
 const token0Addr = Addresses.mockAddresses[0]!;

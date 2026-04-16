@@ -11,12 +11,12 @@ import "../handlers/NonfungiblePositionManager";
 import "../handlers/VaultFactory";
 import "../handlers/VaultERC20";
 
-const CHAIN_ID = 314;
+const CHAIN_ID = 42161;
 
-const token0Addr = Addresses.mockAddresses[0]!;
-const token1Addr = Addresses.mockAddresses[1]!;
-const poolAddr = Addresses.mockAddresses[2]!;
-const factoryAddr = "0xb4c47ed546fc31e26470a186ec2c5f19ef09ba41";
+const token0Addr = Addresses.mockAddresses[0]!.toLowerCase() as `0x${string}`;
+const token1Addr = Addresses.mockAddresses[1]!.toLowerCase() as `0x${string}`;
+const poolAddr = Addresses.mockAddresses[2]!.toLowerCase() as `0x${string}`;
+const factoryAddr = "0x0000000000000000000000000000000000000000"; // default chainConfig factory for non-Filecoin
 
 const ZERO_BD = new BigDecimal(0);
 
