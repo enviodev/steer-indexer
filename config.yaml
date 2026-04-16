@@ -48,89 +48,90 @@ contracts:
 chains:
   # ============================================================
   # HyperSync-supported chains (27 chains)
+  # VaultRegistry addresses sourced from @steerprotocol/sdk v3.0.6
   # ============================================================
 
   # Ethereum Mainnet
   - id: 1
-    start_block: 17000000
+    start_block: 21701081
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x5ef68cc787Cd560ab8b723a2499e9a79c639C647"
       - name: VaultERC20
 
   # Optimism
   - id: 10
-    start_block: 80000000
+    start_block: 96971465
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0xC1Ecd10398A6D7036CceE1f50551ff169715081c"
       - name: VaultERC20
 
   # Flare
   - id: 14
-    start_block: 20000000
+    start_block: 26092102
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x64F9A121Ccbb8956249Ed52C4f63d0f759da53Ce"
       - name: VaultERC20
 
   # Rootstock
   - id: 30
-    start_block: 5000000
+    start_block: 6413173
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x806c2240793b3738000fcb62C66BF462764B903F"
       - name: VaultERC20
 
   # BSC
   - id: 56
-    start_block: 28000000
+    start_block: 28461459
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x31e4ee367d4f2685BAfcAb9566e9C87E60D48983"
       - name: VaultERC20
 
   # Unichain
   - id: 130
-    start_block: 0
+    start_block: 8620494
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x6d5A04974ba2CdC3E307135fE5886b8c7C499e9A"
       - name: VaultERC20
 
   # Polygon
   - id: 137
-    start_block: 41000000
+    start_block: 41535540
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x24825B3C44742600D3995d1D3760cceE999A7f0b"
       - name: VaultERC20
 
   # Sonic
   - id: 146
-    start_block: 0
+    start_block: 474881
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x253B89EfA5a23B1b0305416973F21F6a11CEfab0"
       - name: VaultERC20
 
   # Manta
   - id: 169
-    start_block: 500000
+    start_block: 407246
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
       - name: VaultERC20
 
   # Fantom
   - id: 250
-    start_block: 60000000
+    start_block: 76156993
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x4DE18F1582Aa71671828F329B826ad45B2798b12"
       - name: VaultERC20
 
-  # Hyperliquid EVM
+  # HyperEVM
   - id: 999
     start_block: 0
     contracts:
@@ -140,7 +141,7 @@ chains:
 
   # Polygon zkEVM
   - id: 1101
-    start_block: 1000000
+    start_block: 1022413
     contracts:
       - name: VaultFactory
         address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
@@ -148,58 +149,58 @@ chains:
 
   # Moonbeam
   - id: 1284
-    start_block: 3000000
+    start_block: 8677394
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0xE11709193e7b2E0a0F2a4591022cFf4f01E75050"
       - name: VaultERC20
 
   # Sei
   - id: 1329
-    start_block: 50000000
+    start_block: 119979309
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0xa3fd4B3BD38aB8BBF3f26BB17aA410222B9965Bc"
       - name: VaultERC20
 
   # Soneium
   - id: 1868
-    start_block: 0
+    start_block: 2154716
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x371A7af1c64396186DfE0d3D0BdBAf43a0Fd8a09"
       - name: VaultERC20
 
   # Mantle
   - id: 5000
-    start_block: 30000000
+    start_block: 48569734
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
       - name: VaultERC20
 
   # Zeta
   - id: 7000
-    start_block: 1000000
+    start_block: 6576801
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x49c40936D8430dCBf5787bb6F0F3B26578cc3c12"
       - name: VaultERC20
 
   # Base
   - id: 8453
-    start_block: 2000000
+    start_block: 2092181
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
       - name: VaultERC20
 
   # Mode
   - id: 34443
-    start_block: 2000000
+    start_block: 5307774
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
       - name: VaultERC20
 
   # Arbitrum
@@ -212,10 +213,10 @@ chains:
 
   # Celo
   - id: 42220
-    start_block: 19000000
+    start_block: 19813127
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x116Dba5DcE9CcDA828218b7eB46406810632014C"
       - name: VaultERC20
 
   # Avalanche
@@ -228,15 +229,15 @@ chains:
 
   # Zircuit
   - id: 48900
-    start_block: 0
+    start_block: 5522213
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
       - name: VaultERC20
 
   # Linea
   - id: 59144
-    start_block: 1000000
+    start_block: 656303
     contracts:
       - name: VaultFactory
         address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
@@ -244,248 +245,163 @@ chains:
 
   # Bera (Berachain mainnet)
   - id: 80094
-    start_block: 0
+    start_block: 785208
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x1578228D5c62e2705AEe5BA1DeBd6D9a68830189"
       - name: VaultERC20
 
   # Blast
   - id: 81457
-    start_block: 500000
+    start_block: 417373
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
       - name: VaultERC20
 
   # Scroll
   - id: 534352
-    start_block: 1000000
+    start_block: 287562
     contracts:
       - name: VaultFactory
-        address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+        address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
       - name: VaultERC20
 
   # ============================================================
   # Chains WITHOUT HyperSync - uncomment and add rpc to enable
   # ============================================================
 
-  # # Telos
+  # # Telos (40)
   # - id: 40
-  #   start_block: 250000000
-  #   rpc:
-  #     url: "https://mainnet.telos.net/evm"
-  #     for: sync
+  #   start_block: 337121319
+  #   rpc: { url: "https://mainnet.telos.net/evm", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x2822eE30383EAbCBA817Ab4A7a592F4a194e14b5"
   #     - name: VaultERC20
 
-  # # Thundercore
+  # # Thundercore (108)
   # - id: 108
-  #   start_block: 140000000
-  #   rpc:
-  #     url: "https://mainnet-rpc.thundercore.com"
-  #     for: sync
+  #   start_block: 135181847
+  #   rpc: { url: "https://mainnet-rpc.thundercore.com", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xa1Dd21fbd9e1F0BF28d41F18bDC22326e50C02e9"
   #     - name: VaultERC20
 
-  # # XLayer
+  # # XLayer (196)
   # - id: 196
-  #   start_block: 1000000
-  #   rpc:
-  #     url: "https://rpc.xlayer.tech"
-  #     for: sync
+  #   start_block: 653490
+  #   rpc: { url: "https://rpc.xlayer.tech", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xa1Dd21fbd9e1F0BF28d41F18bDC22326e50C02e9"
   #     - name: VaultERC20
 
-  # # Filecoin
+  # # Filecoin (314)
   # - id: 314
-  #   start_block: 3195837
-  #   rpc:
-  #     url: "https://api.node.glif.io/rpc/v1"
-  #     for: sync
+  #   start_block: 4333381
+  #   rpc: { url: "https://api.node.glif.io/rpc/v1", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
   #     - name: VaultERC20
 
-  # # Astar
+  # # Astar (592)
   # - id: 592
-  #   start_block: 4000000
-  #   rpc:
-  #     url: "https://evm.astar.network"
-  #     for: sync
+  #   start_block: 5465965
+  #   rpc: { url: "https://evm.astar.network", for: sync }
   #   contracts:
   #     - name: VaultFactory
   #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
   #     - name: VaultERC20
 
-  # # Metis
+  # # Metis (1088)
   # - id: 1088
-  #   start_block: 8000000
-  #   rpc:
-  #     url: "https://andromeda.metis.io/?owner=1088"
-  #     for: sync
+  #   start_block: 6067741
+  #   rpc: { url: "https://andromeda.metis.io/?owner=1088", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x116Dba5DcE9CcDA828218b7eB46406810632014C"
   #     - name: VaultERC20
 
-  # # Core
-  # - id: 1116
-  #   start_block: 10000000
-  #   rpc:
-  #     url: "https://rpc.coredao.org"
-  #     for: sync
-  #   contracts:
-  #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
-  #     - name: VaultERC20
-
-  # # Ronin
+  # # Ronin (2020)
   # - id: 2020
-  #   start_block: 30000000
-  #   rpc:
-  #     url: "https://api.roninchain.com/rpc"
-  #     for: sync
+  #   start_block: 45874467
+  #   rpc: { url: "https://api.roninchain.com/rpc", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xac4D51669B80D09d8Cc5EeFF50026c4d1D3290e6"
   #     - name: VaultERC20
 
-  # # Kava
+  # # Kava (2222)
   # - id: 2222
-  #   start_block: 6000000
-  #   rpc:
-  #     url: "https://evm.kava.io"
-  #     for: sync
+  #   start_block: 5915232
+  #   rpc: { url: "https://evm.kava.io", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xe240B9a2936f6Fb8860219bC059349e50F03492e"
   #     - name: VaultERC20
 
-  # # Peaq
+  # # Peaq (3338)
   # - id: 3338
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://peaq.api.onfinality.io/public"
-  #     for: sync
+  #   start_block: 5382992
+  #   rpc: { url: "https://peaq.api.onfinality.io/public", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xa1Dd21fbd9e1F0BF28d41F18bDC22326e50C02e9"
   #     - name: VaultERC20
 
-  # # AstarZkevm
+  # # AstarZkevm (3776)
   # - id: 3776
-  #   start_block: 1000000
-  #   rpc:
-  #     url: "https://rpc.startale.com/astar-zkevm"
-  #     for: sync
+  #   start_block: 210954
+  #   rpc: { url: "https://rpc.startale.com/astar-zkevm", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xa1Dd21fbd9e1F0BF28d41F18bDC22326e50C02e9"
   #     - name: VaultERC20
 
-  # # Nibiru
-  # - id: 6900
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://evm-rpc.nibiru.fi"
-  #     for: sync
-  #   contracts:
-  #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
-  #     - name: VaultERC20
-
-  # # Katana
-  # - id: 8614
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://rpc.katana.network"
-  #     for: sync
-  #   contracts:
-  #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
-  #     - name: VaultERC20
-
-  # # Evmos
+  # # Evmos (9001)
   # - id: 9001
-  #   start_block: 12000000
-  #   rpc:
-  #     url: "https://evmos-evm-rpc.publicnode.com"
-  #     for: sync
+  #   start_block: 13671900
+  #   rpc: { url: "https://evmos-evm-rpc.publicnode.com", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xD90c8970708FfdFC403bdb56636621e3E9CCe921"
   #     - name: VaultERC20
 
-  # # Apechain
+  # # Apechain (33139)
   # - id: 33139
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://rpc.apechain.com"
-  #     for: sync
+  #   start_block: 642981
+  #   rpc: { url: "https://rpc.apechain.com", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
   #     - name: VaultERC20
 
-  # # Hemi
+  # # Hemi (43111)
   # - id: 43111
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://rpc.hemi.network/rpc"
-  #     for: sync
+  #   start_block: 1390406
+  #   rpc: { url: "https://rpc.hemi.network/rpc", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x37Cff062D52Dd6E9E39Df619CCd30c037a36bB83"
   #     - name: VaultERC20
 
-  # # BeraChainBartio (testnet)
-  # - id: 80084
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://bartio.rpc.berachain.com"
-  #     for: sync
-  #   contracts:
-  #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
-  #     - name: VaultERC20
-
-  # # Taiko
+  # # Taiko (167000)
   # - id: 167000
-  #   start_block: 100000
-  #   rpc:
-  #     url: "https://rpc.taiko.xyz"
-  #     for: sync
+  #   start_block: 34583
+  #   rpc: { url: "https://rpc.taiko.xyz", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0x38a07152ee64C7067fEeBA904D72ABc9a9DA0C77"
   #     - name: VaultERC20
 
-  # # ZklinkNova
+  # # ZklinkNova (810180)
   # - id: 810180
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://rpc.zklink.io"
-  #     for: sync
+  #   start_block: 34583
+  #   rpc: { url: "https://rpc.zklink.io", for: sync }
   #   contracts:
   #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
-  #     - name: VaultERC20
-
-  # # Saga
-  # - id: 2345678
-  #   start_block: 0
-  #   rpc:
-  #     url: "https://rpc-saga-mainnet.sagachain.io"
-  #     for: sync
-  #   contracts:
-  #     - name: VaultFactory
-  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #       address: "0xFB3b5b859B08Dc86fDA0aF9332E5Ca4cF6689d66"
   #     - name: VaultERC20
