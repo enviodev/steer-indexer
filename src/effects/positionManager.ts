@@ -1,5 +1,6 @@
 import { S, createEffect } from "envio";
 import { createPublicClient, http, parseAbi } from "viem";
+import { getRpcUrl } from "./rpc";
 
 const NPM_ABI = parseAbi([
   "function positions(uint256 tokenId) view returns (uint96 nonce, address operator, address token0, address token1, uint24 fee, int24 tickLower, int24 tickUpper, uint128 liquidity, uint256 feeGrowthInside0LastX128, uint256 feeGrowthInside1LastX128, uint128 tokensOwed0, uint128 tokensOwed1)",
@@ -8,15 +9,6 @@ const NPM_ABI = parseAbi([
 const FACTORY_ABI = parseAbi([
   "function getPool(address tokenA, address tokenB, uint24 fee) view returns (address pool)",
 ]);
-
-function getRpcUrl(chainId: number): string {
-  const envKey = `ENVIO_RPC_URL_${chainId}`;
-  const url = process.env[envKey];
-  if (url) return url;
-  if (chainId === 314) return "https://api.node.glif.io/rpc/v1";
-  if (chainId === 42161) return "https://arb1.arbitrum.io/rpc";
-  throw new Error(`No RPC URL configured for chain ${chainId}`);
-}
 
 export const getPositionData = createEffect(
   {

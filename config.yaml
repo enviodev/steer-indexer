@@ -267,26 +267,225 @@ chains:
       - name: VaultERC20
 
   # ============================================================
-  # Chains WITHOUT HyperSync (commented out - need RPC fallback)
+  # Chains WITHOUT HyperSync - uncomment and add rpc to enable
   # ============================================================
 
-  # # Filecoin (314) - no HyperSync, dRPC lacks archive
-  # # Evmos (9001)
-  # # Thundercore (108)
-  # # Metis (1088)
-  # # Kava (2222)
-  # # Astar (592)
-  # # AstarZkevm (3776)
-  # # Telos (40)
-  # # XLayer (196)
-  # # Taiko (167000)
-  # # ZklinkNova (810180)
-  # # BeraChainBartio (80084) - testnet
-  # # Apechain (33139)
-  # # Hemi (43111)
-  # # Core (1116)
-  # # Peaq (3338)
-  # # Katana (8614)
-  # # Ronin (2020)
-  # # Saga (2345678)
-  # # Nibiru (6900)
+  # # Telos
+  # - id: 40
+  #   start_block: 250000000
+  #   rpc:
+  #     url: "https://mainnet.telos.net/evm"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Thundercore
+  # - id: 108
+  #   start_block: 140000000
+  #   rpc:
+  #     url: "https://mainnet-rpc.thundercore.com"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # XLayer
+  # - id: 196
+  #   start_block: 1000000
+  #   rpc:
+  #     url: "https://rpc.xlayer.tech"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Filecoin
+  # - id: 314
+  #   start_block: 3195837
+  #   rpc:
+  #     url: "https://api.node.glif.io/rpc/v1"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Astar
+  # - id: 592
+  #   start_block: 4000000
+  #   rpc:
+  #     url: "https://evm.astar.network"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Metis
+  # - id: 1088
+  #   start_block: 8000000
+  #   rpc:
+  #     url: "https://andromeda.metis.io/?owner=1088"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Core
+  # - id: 1116
+  #   start_block: 10000000
+  #   rpc:
+  #     url: "https://rpc.coredao.org"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Ronin
+  # - id: 2020
+  #   start_block: 30000000
+  #   rpc:
+  #     url: "https://api.roninchain.com/rpc"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Kava
+  # - id: 2222
+  #   start_block: 6000000
+  #   rpc:
+  #     url: "https://evm.kava.io"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Peaq
+  # - id: 3338
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://peaq.api.onfinality.io/public"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # AstarZkevm
+  # - id: 3776
+  #   start_block: 1000000
+  #   rpc:
+  #     url: "https://rpc.startale.com/astar-zkevm"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Nibiru
+  # - id: 6900
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://evm-rpc.nibiru.fi"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Katana
+  # - id: 8614
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://rpc.katana.network"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Evmos
+  # - id: 9001
+  #   start_block: 12000000
+  #   rpc:
+  #     url: "https://evmos-evm-rpc.publicnode.com"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Apechain
+  # - id: 33139
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://rpc.apechain.com"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Hemi
+  # - id: 43111
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://rpc.hemi.network/rpc"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # BeraChainBartio (testnet)
+  # - id: 80084
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://bartio.rpc.berachain.com"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Taiko
+  # - id: 167000
+  #   start_block: 100000
+  #   rpc:
+  #     url: "https://rpc.taiko.xyz"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # ZklinkNova
+  # - id: 810180
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://rpc.zklink.io"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20
+
+  # # Saga
+  # - id: 2345678
+  #   start_block: 0
+  #   rpc:
+  #     url: "https://rpc-saga-mainnet.sagachain.io"
+  #     for: sync
+  #   contracts:
+  #     - name: VaultFactory
+  #       address: "0x9f5b097AD23e2CF4F34e502A3E41D941678877Dc"
+  #     - name: VaultERC20

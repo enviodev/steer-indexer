@@ -1,5 +1,6 @@
 import { S, createEffect } from "envio";
 import { createPublicClient, http, parseAbi } from "viem";
+import { getRpcUrl } from "./rpc";
 
 const ERC20_ABI = parseAbi([
   "function name() view returns (string)",
@@ -12,15 +13,6 @@ const ERC20_BYTES_ABI = parseAbi([
   "function name() view returns (bytes32)",
   "function symbol() view returns (bytes32)",
 ]);
-
-function getRpcUrl(chainId: number): string {
-  const envKey = `ENVIO_RPC_URL_${chainId}`;
-  const url = process.env[envKey];
-  if (url) return url;
-  if (chainId === 314) return "https://api.node.glif.io/rpc/v1";
-  if (chainId === 42161) return "https://arb1.arbitrum.io/rpc";
-  throw new Error(`No RPC URL configured for chain ${chainId}`);
-}
 
 function sanitizeString(s: string): string {
   // Remove null bytes and other control characters that Postgres can't store

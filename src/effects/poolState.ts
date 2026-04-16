@@ -1,20 +1,12 @@
 import { S, createEffect } from "envio";
 import { createPublicClient, http, parseAbi } from "viem";
+import { getRpcUrl } from "./rpc";
 
 const POOL_ABI = parseAbi([
   "function feeGrowthGlobal0X128() view returns (uint256)",
   "function feeGrowthGlobal1X128() view returns (uint256)",
   "function ticks(int24) view returns (uint128 liquidityGross, int128 liquidityNet, uint256 feeGrowthOutside0X128, uint256 feeGrowthOutside1X128, int56 tickCumulativeOutside, uint160 secondsPerLiquidityOutsideX128, uint32 secondsOutside, bool initialized)",
 ]);
-
-function getRpcUrl(chainId: number): string {
-  const envKey = `ENVIO_RPC_URL_${chainId}`;
-  const url = process.env[envKey];
-  if (url) return url;
-  if (chainId === 314) return "https://api.node.glif.io/rpc/v1";
-  if (chainId === 42161) return "https://arb1.arbitrum.io/rpc";
-  throw new Error(`No RPC URL configured for chain ${chainId}`);
-}
 
 export const getPoolFeeGrowthGlobal = createEffect(
   {
