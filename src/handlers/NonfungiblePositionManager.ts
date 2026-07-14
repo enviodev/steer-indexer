@@ -1,4 +1,4 @@
-import { NonfungiblePositionManager, type HandlerContext } from "generated";
+import { indexer, type EvmOnEventContext } from "envio";
 import { ADDRESS_ZERO, ZERO_BD, ZERO_BI } from "../utils/constants";
 import { convertTokenToDecimal, loadTransaction } from "../utils/index";
 import { getChainConfig } from "../utils/chainConfig";
@@ -6,7 +6,7 @@ import {
   getPositionData,
   getPoolAddress,
 } from "../effects/positionManager";
-import type { Entities } from "../../generated/envio.d.ts";
+import type { Entities } from "envio";
 
 async function getPosition(
   event: {
@@ -16,8 +16,8 @@ async function getPosition(
     transaction: { hash: string; gasPrice: bigint | undefined; from: string | undefined };
   },
   tokenId: bigint,
-  context: HandlerContext
-): Promise<Entities["Position"] | null> {
+  context: EvmOnEventContext
+): Promise<Entity<"Position"] | null> {
   const chainId = event.chainId;
   const positionId = `${chainId}-${tokenId.toString()}`;
   let position = await context.Position.get(positionId);
@@ -86,11 +86,11 @@ async function getPosition(
 }
 
 async function updateFeeVars(
-  position: Entities["Position"],
+  position: Entity<"Position"],
   event: { srcAddress: string; chainId: number },
   tokenId: bigint,
-  context: HandlerContext
-): Promise<Entities["Position"]> {
+  context: EvmOnEventContext
+): Promise<Entity<"Position"]> {
   const positionResultRaw = await context.effect(getPositionData, {
     npmAddress: event.srcAddress,
     tokenId: tokenId.toString(),
@@ -112,13 +112,13 @@ async function updateFeeVars(
 }
 
 function savePositionSnapshot(
-  position: Entities["Position"],
+  position: Entity<"Position"],
   event: {
     block: { number: number; timestamp: number };
     transaction: { hash: string; gasPrice: bigint | undefined };
     chainId: number;
   },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): void {
   const snapshotId = `${position.id}#${event.block.number}`;
   const transactionId = `${event.chainId}-${event.transaction.hash}`;
@@ -146,7 +146,8 @@ function savePositionSnapshot(
 // ============================================================
 // IncreaseLiquidity
 // ============================================================
-NonfungiblePositionManager.IncreaseLiquidity.handler(
+indexer.onEvent(
+  { contract: "NonfungiblePositionManager", event: "IncreaseLiquidity" },
   async ({ event, context }) => {
     let position = await getPosition(
       event,
@@ -207,7 +208,8 @@ NonfungiblePositionManager.IncreaseLiquidity.handler(
 // ============================================================
 // DecreaseLiquidity
 // ============================================================
-NonfungiblePositionManager.DecreaseLiquidity.handler(
+indexer.onEvent(
+  { contract: "NonfungiblePositionManager", event: "DecreaseLiquidity" },
   async ({ event, context }) => {
     let position = await getPosition(
       event,
@@ -267,7 +269,8 @@ NonfungiblePositionManager.DecreaseLiquidity.handler(
 // ============================================================
 // NFTCollect
 // ============================================================
-NonfungiblePositionManager.NFTCollect.handler(
+indexer.onEvent(
+  { contract: "NonfungiblePositionManager", event: "NFTCollect" },
   async ({ event, context }) => {
     let position = await getPosition(
       event,
@@ -331,7 +334,8 @@ NonfungiblePositionManager.NFTCollect.handler(
 // ============================================================
 // NFTTransfer
 // ============================================================
-NonfungiblePositionManager.NFTTransfer.handler(
+indexer.onEvent(
+  { contract: "NonfungiblePositionManager", event: "NFTTransfer" },
   async ({ event, context }) => {
     let position = await getPosition(
       event,

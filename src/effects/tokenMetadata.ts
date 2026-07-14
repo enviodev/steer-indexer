@@ -68,7 +68,7 @@ export const getTokenMetadata = createEffect(
       } catch { /* keep "unknown" */ }
     }
 
-    let decimals: number | undefined = undefined;
+    let decimals: number | null = undefined;
     try {
       const d = await client.readContract({ address, abi: ERC20_ABI, functionName: "decimals" });
       if (d < 255) decimals = Number(d);

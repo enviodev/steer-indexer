@@ -14,11 +14,8 @@
     "vitest": "4.0.18"
   },
   "dependencies": {
-    "envio": "3.0.0-alpha.21",
+    "envio": "3.2.1",
     "viem": "^2.47.18"
-  },
-  "optionalDependencies": {
-    "generated": "./steer-indexer/../generated"
   },
   "engines": {
     "node": ">=22.0.0"

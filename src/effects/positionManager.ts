@@ -51,7 +51,7 @@ export const getPositionData = createEffect(
         feeGrowthInside1LastX128: result[9].toString(),
       };
     } catch {
-      return undefined;
+      return null;
     }
   }
 );

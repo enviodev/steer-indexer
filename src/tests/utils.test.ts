@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { BigDecimal } from "generated";
+import { BigDecimal } from "envio";
 import {
   exponentToBigDecimal,
   safeDiv,

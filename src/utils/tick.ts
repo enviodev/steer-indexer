@@ -1,5 +1,5 @@
 import { bigDecimalExponated, safeDiv } from "./index";
-import { BigDecimal } from "generated";
+import { BigDecimal } from "envio";
 import { ONE_BD, ZERO_BD, ZERO_BI } from "./constants";
 import type { Entities } from "../../generated/envio.d.ts";
 

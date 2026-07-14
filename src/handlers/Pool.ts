@@ -1,4 +1,4 @@
-import { Pool, BigDecimal } from "generated";
+import { indexer, type Pool, BigDecimal } from "envio";
 import { ZERO_BI, ZERO_BD, ONE_BI } from "../utils/constants";
 import { convertTokenToDecimal, loadTransaction, safeDiv } from "../utils/index";
 import { getChainConfig } from "../utils/chainConfig";
@@ -22,7 +22,9 @@ import { getPoolFeeGrowthGlobal, getPoolTickData } from "../effects/poolState";
 // ============================================================
 // Initialize
 // ============================================================
-Pool.Initialize.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Pool", event: "Initialize" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const poolId = `${chainId}-${event.srcAddress.toLowerCase()}`;
   const pool = await context.Pool.getOrThrow(poolId);
@@ -50,12 +52,15 @@ Pool.Initialize.handler(async ({ event, context }) => {
   const token1DerivedETH = await findEthPerToken(token1, context, chainId);
   context.Token.set({ ...token0, derivedETH: token0DerivedETH });
   context.Token.set({ ...token1, derivedETH: token1DerivedETH });
-});
+}
+);
 
 // ============================================================
 // Mint
 // ============================================================
-Pool.Mint.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Pool", event: "Mint" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const config = getChainConfig(chainId);
   const poolAddress = event.srcAddress;
@@ -189,13 +194,13 @@ Pool.Mint.handler(async ({ event, context }) => {
 
   lowerTick = {
     ...lowerTick,
-    liquidityGross: lowerTick.liquidityGross + event.params.amount,
-    liquidityNet: lowerTick.liquidityNet + event.params.amount,
+    liquidityGross: lowerTick!.liquidityGross + event.params.amount,
+    liquidityNet: lowerTick!.liquidityNet + event.params.amount,
   };
   upperTick = {
     ...upperTick,
-    liquidityGross: upperTick.liquidityGross + event.params.amount,
-    liquidityNet: upperTick.liquidityNet - event.params.amount,
+    liquidityGross: upperTick!.liquidityGross + event.params.amount,
+    liquidityNet: upperTick!.liquidityNet - event.params.amount,
   };
 
   // Interval updates
@@ -215,12 +220,15 @@ Pool.Mint.handler(async ({ event, context }) => {
   // Update tick fee vars and save
   await updateTickFeeVarsAndSave(lowerTick, event, context);
   await updateTickFeeVarsAndSave(upperTick, event, context);
-});
+}
+);
 
 // ============================================================
 // Burn
 // ============================================================
-Pool.Burn.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Pool", event: "Burn" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const config = getChainConfig(chainId);
   const poolAddress = event.srcAddress;
@@ -330,13 +338,13 @@ Pool.Burn.handler(async ({ event, context }) => {
   if (lowerTick && upperTick) {
     lowerTick = {
       ...lowerTick,
-      liquidityGross: lowerTick.liquidityGross - event.params.amount,
-      liquidityNet: lowerTick.liquidityNet - event.params.amount,
+      liquidityGross: lowerTick!.liquidityGross - event.params.amount,
+      liquidityNet: lowerTick!.liquidityNet - event.params.amount,
     };
     upperTick = {
       ...upperTick,
-      liquidityGross: upperTick.liquidityGross - event.params.amount,
-      liquidityNet: upperTick.liquidityNet + event.params.amount,
+      liquidityGross: upperTick!.liquidityGross - event.params.amount,
+      liquidityNet: upperTick!.liquidityNet + event.params.amount,
     };
     await updateTickFeeVarsAndSave(lowerTick, event, context);
     await updateTickFeeVarsAndSave(upperTick, event, context);
@@ -354,12 +362,15 @@ Pool.Burn.handler(async ({ event, context }) => {
   context.Token.set(token1);
   context.Pool.set(pool);
   context.Factory.set(factory);
-});
+}
+);
 
 // ============================================================
 // Swap (most complex handler)
 // ============================================================
-Pool.Swap.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Pool", event: "Swap" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const config = getChainConfig(chainId);
   const poolId = `${chainId}-${event.srcAddress.toLowerCase()}`;
@@ -683,12 +694,15 @@ Pool.Swap.handler(async ({ event, context }) => {
       }
     }
   }
-});
+}
+);
 
 // ============================================================
 // Flash
 // ============================================================
-Pool.Flash.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Pool", event: "Flash" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const poolId = `${chainId}-${event.srcAddress.toLowerCase()}`;
   const pool = await context.Pool.getOrThrow(poolId);
@@ -707,7 +721,8 @@ Pool.Flash.handler(async ({ event, context }) => {
   } catch {
     // RPC may be unavailable — pool remains unchanged
   }
-});
+}
+);
 
 // ============================================================
 // Tick helpers

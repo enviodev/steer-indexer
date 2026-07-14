@@ -1,13 +1,18 @@
-import { V3Factory } from "generated";
+import { indexer } from "envio";
 import { ZERO_BI, ZERO_BD, ONE_BI, ADDRESS_ZERO } from "../utils/constants";
 import { getChainConfig } from "../utils/chainConfig";
 import { getTokenMetadata } from "../effects/tokenMetadata";
 
-V3Factory.PoolCreated.contractRegister(({ event, context }) => {
-  context.addPool(event.params.pool);
-});
+indexer.contractRegister(
+  { contract: "V3Factory", event: "PoolCreated" },
+  async ({ event, context }) => {
+  context.chain.Pool.add(event.params.pool);
+}
+);
 
-V3Factory.PoolCreated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "V3Factory", event: "PoolCreated" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const config = getChainConfig(chainId);
 
@@ -183,4 +188,5 @@ V3Factory.PoolCreated.handler(async ({ event, context }) => {
   context.Token.set(token0);
   context.Token.set(token1);
   context.Factory.set(factory);
-});
+}
+);

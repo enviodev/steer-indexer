@@ -1,11 +1,11 @@
-import { type HandlerContext, BigDecimal } from "generated";
+import { type EvmOnEventContext, BigDecimal } from "envio";
 import { ZERO_BD, ZERO_BI, ONE_BI } from "./constants";
 import { getChainConfig } from "./chainConfig";
 import type { Entities } from "../../generated/envio.d.ts";
 
 export async function updateUniswapDayData(
   event: { block: { timestamp: number }; chainId: number },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["UniswapDayData"]> {
   const chainId = event.chainId;
   const config = getChainConfig(chainId);
@@ -50,7 +50,7 @@ export async function updatePoolDayData(
     srcAddress: string;
     chainId: number;
   },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["PoolDayData"]> {
   const chainId = event.chainId;
   const timestamp = event.block.timestamp;
@@ -117,7 +117,7 @@ export async function updatePoolHourData(
     srcAddress: string;
     chainId: number;
   },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["PoolHourData"]> {
   const chainId = event.chainId;
   const timestamp = event.block.timestamp;
@@ -182,7 +182,7 @@ export async function updatePoolHourData(
 export async function updateTokenDayData(
   token: Entities["Token"],
   event: { block: { timestamp: number }; chainId: number },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["TokenDayData"]> {
   const chainId = event.chainId;
   const bundle = await context.Bundle.getOrThrow(`${chainId}-bundle`);
@@ -234,7 +234,7 @@ export async function updateTokenDayData(
 export async function updateTokenHourData(
   token: Entities["Token"],
   event: { block: { timestamp: number }; chainId: number },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["TokenHourData"]> {
   const chainId = event.chainId;
   const bundle = await context.Bundle.getOrThrow(`${chainId}-bundle`);
@@ -286,7 +286,7 @@ export async function updateTokenHourData(
 export function updateTickDayData(
   tick: Entities["Tick"],
   event: { block: { timestamp: number }; chainId: number },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Entities["TickDayData"] {
   const chainId = event.chainId;
   const timestamp = event.block.timestamp;

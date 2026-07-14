@@ -1,4 +1,4 @@
-import { BigDecimal, type HandlerContext } from "generated";
+import { BigDecimal, type EvmOnEventContext } from "envio";
 import { ZERO_BI, ZERO_BD, ONE_BD, ONE_BI } from "./constants";
 import type { Entities } from "../../generated/envio.d.ts";
 
@@ -64,7 +64,7 @@ export async function loadTransaction(
     transaction: { hash: string; gasPrice: bigint | undefined; from?: string | undefined };
     chainId: number;
   },
-  context: HandlerContext
+  context: EvmOnEventContext
 ): Promise<Entities["Transaction"]> {
   const id = `${event.chainId}-${event.transaction.hash}`;
   const existing = await context.Transaction.get(id);

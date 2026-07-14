@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { createTestIndexer, BigDecimal } from "generated";
+import { createTestIndexer, BigDecimal } from "envio";
 import { TestHelpers } from "envio";
 
 const { Addresses } = TestHelpers;

@@ -1,4 +1,4 @@
-import { VaultERC20, BigDecimal } from "generated";
+import { indexer, BigDecimal } from "envio";
 import { getTokenMetadata } from "../effects/tokenMetadata";
 
 const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000";
@@ -9,7 +9,9 @@ function toDecimals(value: bigint, decimals: number): BigDecimal {
   return new BigDecimal(value.toString()).div(divisor);
 }
 
-VaultERC20.VaultTransfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "VaultERC20", event: "VaultTransfer" },
+  async ({ event, context }) => {
   const chainId = event.chainId;
   const contractAddress = event.srcAddress.toLowerCase();
   const contractId = `${chainId}-${contractAddress}`;
@@ -169,4 +171,5 @@ VaultERC20.VaultTransfer.handler(async ({ event, context }) => {
     value: toDecimals(event.params.value, decimals),
     valueExact: event.params.value,
   });
-});
+}
+);

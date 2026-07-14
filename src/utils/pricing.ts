@@ -1,4 +1,4 @@
-import { BigDecimal, type HandlerContext } from "generated";
+import { BigDecimal, type EvmOnEventContext } from "envio";
 import { ZERO_BD, ZERO_BI, ONE_BD } from "./constants";
 import { exponentToBigDecimal, safeDiv } from "./index";
 import { getChainConfig } from "./chainConfig";
@@ -22,7 +22,7 @@ export function sqrtPriceX96ToTokenPrices(
 }
 
 export async function getEthPriceInUSD(
-  context: HandlerContext,
+  context: EvmOnEventContext,
   chainId: number
 ): Promise<BigDecimal> {
   const config = getChainConfig(chainId);
@@ -36,7 +36,7 @@ export async function getEthPriceInUSD(
 
 export async function findEthPerToken(
   token: Entities["Token"],
-  context: HandlerContext,
+  context: EvmOnEventContext,
   chainId: number
 ): Promise<BigDecimal> {
   const config = getChainConfig(chainId);
@@ -105,7 +105,7 @@ export async function getTrackedAmountUSD(
   token0: Entities["Token"],
   tokenAmount1: BigDecimal,
   token1: Entities["Token"],
-  context: HandlerContext,
+  context: EvmOnEventContext,
   chainId: number
 ): Promise<BigDecimal> {
   const config = getChainConfig(chainId);
