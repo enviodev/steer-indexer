@@ -31,6 +31,7 @@ function bytes32ToString(bytes: string): string {
 
 export const getTokenMetadata = createEffect(
   {
+    rateLimit: false,
     name: "getTokenMetadata",
     input: { address: S.string, chainId: S.number },
     output: {

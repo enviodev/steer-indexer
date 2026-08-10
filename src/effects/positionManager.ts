@@ -12,6 +12,7 @@ const FACTORY_ABI = parseAbi([
 
 export const getPositionData = createEffect(
   {
+    rateLimit: false,
     name: "getPositionData",
     input: { npmAddress: S.string, tokenId: S.string, chainId: S.number },
     output: S.nullable(
@@ -58,6 +59,7 @@ export const getPositionData = createEffect(
 
 export const getPoolAddress = createEffect(
   {
+    rateLimit: false,
     name: "getPoolAddress",
     input: {
       factoryAddress: S.string,

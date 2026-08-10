@@ -10,6 +10,7 @@ const POOL_ABI = parseAbi([
 
 export const getPoolFeeGrowthGlobal = createEffect(
   {
+    rateLimit: false,
     name: "getPoolFeeGrowthGlobal",
     input: { poolAddress: S.string, chainId: S.number },
     output: {
@@ -46,6 +47,7 @@ export const getPoolFeeGrowthGlobal = createEffect(
 
 export const getPoolTickData = createEffect(
   {
+    rateLimit: false,
     name: "getPoolTickData",
     input: { poolAddress: S.string, tickIdx: S.number, chainId: S.number },
     output: {
